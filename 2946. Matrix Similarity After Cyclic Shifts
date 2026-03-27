@@ -1,0 +1,13 @@
+class Solution:
+    def areSimilar(self, mat, k):
+        n, m = len(mat), len(mat[0])
+        k %= m
+        for i in range(n):
+            for j in range(m):
+                if i % 2 == 0:
+                    if mat[i][j] != mat[i][(j - k) % m]:
+                        return False
+                else:
+                    if mat[i][j] != mat[i][(j + k) % m]:
+                        return False
+        return True
